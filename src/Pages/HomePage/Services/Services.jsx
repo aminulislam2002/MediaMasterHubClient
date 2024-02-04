@@ -28,23 +28,23 @@ const serviceData = [
     icon: <FaTwitterSquare className="w-20 h-20 p-4" />,
     title: "Twitter Auto Follower & Liker",
     subTitle:
-      "Enhance your Twitter visibility with automated followers and likes, saving valuable time by eliminating the need for manual searches or team inquiries.",
+      "Boost Twitter visibility with automated followers and likes, saving time by eliminating manual searches or team inquiries.",
   },
   {
     icon: <FaYoutubeSquare className="w-20 h-20 p-4" />,
-    title: "YouTube Auto Subscribe & Liker",
+    title: "Youtube Auto Subscribe & Liker",
     subTitle:
       "Drive YouTube growth by automating subscriptions and likes, eliminating the need for manual searches or team inquiries and saving you time.",
   },
   {
     icon: <LuGalleryThumbnails className="w-20 h-20 p-4" />,
-    title: "YouTube Thumbnail Generator",
+    title: "Youtube Thumbnail Generator",
     subTitle:
       "Create eye-catching YouTube thumbnails effortlessly with our automated generator, saving time and streamlining your content creation process.",
   },
   {
     icon: <FaHashtag className="w-20 h-20 p-4" />,
-    title: "YouTube Tags Generator",
+    title: "Youtube Tags Generator",
     subTitle:
       "Optimize your YouTube videos with relevant tags generated automatically, saving time on manual searches and enhancing your video discoverability.",
   },
