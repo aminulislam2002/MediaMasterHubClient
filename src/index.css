@@ -1,3 +1,53 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  letter-spacing: 0px;
+  margin: 0px;
+  font-family: "Mulish", sans-serif;
+  color: #232434;
+  font-weight: 400;
+}
+
+a {
+  font-family: "Mulish", sans-serif;
+  text-decoration: none;
+}
+
+input {
+  outline: none;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+fieldset {
+  border: 0 none;
+  margin: 0 auto;
+  padding: 0;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+span {
+  font-family: "Mulish", sans-serif;
+}
