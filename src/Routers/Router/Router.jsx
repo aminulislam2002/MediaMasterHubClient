@@ -1,15 +1,15 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../../Layouts/MainLayout/MainLayout";
 import Home from "../../Pages/HomePage/Home/Home";
-import InstagramAutoFollowerAndLiker from "../../Pages/HomePage/ServicesPages/InstagramAutoFollowerAndLiker/InstagramAutoFollowerAndLiker";
-import FacebookAutoFollowerAndLiker from "../../Pages/HomePage/ServicesPages/FacebookAutoFollowerAndLiker/FacebookAutoFollowerAndLiker";
-import TwitterAutoFollowerAndLiker from "../../Pages/HomePage/ServicesPages/TwitterAutoFollowerAndLiker/TwitterAutoFollowerAndLiker";
-import YoutubeAutoSubscribeAndLiker from "../../Pages/HomePage/ServicesPages/YoutubeAutoSubscribeAndLiker/YoutubeAutoSubscribeAndLiker";
-import YoutubeThumbnailGenerator from "../../Pages/HomePage/ServicesPages/YoutubeThumbnailGenerator/YoutubeThumbnailGenerator";
-import YoutubeTagsGenerator from "../../Pages/HomePage/ServicesPages/YoutubeTagsGenerator/YoutubeTagsGenerator";
-import ImageToTextConvert from "../../Pages/HomePage/ServicesPages/ImageToTextConvert/ImageToTextConvert";
-import WebsiteBrowsing from "../../Pages/HomePage/ServicesPages/WebsiteBrowsing/WebsiteBrowsing";
-import AgeCalculator from "../../Pages/HomePage/ServicesPages/AgeCalculator/AgeCalculator";
+import InstagramAutoFollowerAndLiker from "../../Pages/HomePage/FeaturesPages/InstagramAutoFollowerAndLiker/InstagramAutoFollowerAndLiker";
+import FacebookAutoFollowerAndLiker from "../../Pages/HomePage/FeaturesPages/FacebookAutoFollowerAndLiker/FacebookAutoFollowerAndLiker";
+import TwitterAutoFollowerAndLiker from "../../Pages/HomePage/FeaturesPages/TwitterAutoFollowerAndLiker/TwitterAutoFollowerAndLiker";
+import YoutubeAutoSubscribeAndLiker from "../../Pages/HomePage/FeaturesPages/YoutubeAutoSubscribeAndLiker/YoutubeAutoSubscribeAndLiker";
+import YoutubeThumbnailGenerator from "../../Pages/HomePage/FeaturesPages/YoutubeThumbnailGenerator/YoutubeThumbnailGenerator";
+import YoutubeTagsGenerator from "../../Pages/HomePage/FeaturesPages/YoutubeTagsGenerator/YoutubeTagsGenerator";
+import ImageToTextConvert from "../../Pages/HomePage/FeaturesPages/ImageToTextConvert/ImageToTextConvert";
+import WebsiteBrowsing from "../../Pages/HomePage/FeaturesPages/WebsiteBrowsing/WebsiteBrowsing";
+import AgeCalculator from "../../Pages/HomePage/FeaturesPages/AgeCalculator/AgeCalculator";
 
 const router = createBrowserRouter([
   {

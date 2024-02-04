@@ -1,11 +1,11 @@
 import Header from "../Header/Header";
-import Services from "../Services/Services";
+import Features from "../Features/Features";
 
 const Home = () => {
   return (
     <div>
       <Header></Header>
-      <Services></Services>
+      <Features></Features>
     </div>
   );
 };

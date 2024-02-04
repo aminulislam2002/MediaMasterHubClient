@@ -11,7 +11,7 @@ import {
 import { LuGalleryThumbnails } from "react-icons/lu";
 import { Link } from "react-router-dom";
 
-const serviceData = [
+const featuresData = [
   {
     icon: <FaInstagramSquare className="w-20 h-20 p-4" />,
     title: "Instagram Auto Follower & Liker",
@@ -68,21 +68,21 @@ const serviceData = [
   },
 ];
 
-const Services = () => {
+const Features = () => {
   return (
     <div className="bg-slate-100 dark:bg-slate-900">
       <div className="container mx-auto">
         <div className="py-[150px] border-b">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {serviceData.map((service, index) => (
-              <Link key={index} to={`/${service.title.toLowerCase().replace(/\s+/g, "-")}`}>
+            {featuresData.map((feature, index) => (
+              <Link key={index} to={`/${feature?.title.toLowerCase().replace(/\s+/g, "-")}`}>
                 <div className="p-7 bg-white dark:bg-slate-800 rounded-lg">
                   <div className="flex justify-start items-center mb-3">
-                    <div className="border border-t-4 rounded-full border-slate-200">{service.icon}</div>
+                    <div className="border border-t-4 rounded-full border-slate-200">{feature?.icon}</div>
                   </div>
                   <div>
-                    <h1 className="text-xl font-semibold mb-3 text-slate-800 dark:text-slate-50">{service.title}</h1>
-                    <p className="text-[15px]">{service.subTitle}</p>
+                    <h1 className="text-xl font-semibold mb-3 text-slate-800 dark:text-slate-50">{feature?.title}</h1>
+                    <p className="text-[15px]">{feature?.subTitle}</p>
                   </div>
                 </div>
               </Link>
@@ -94,4 +94,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Features;
