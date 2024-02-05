@@ -1,11 +1,86 @@
-
+import { useState } from "react";
+import { LuSendHorizonal } from "react-icons/lu";
+import Swal from "sweetalert2";
 
 const YoutubeAutoSubscribeAndLiker = () => {
-    return (
-        <div className="pt-16">
-            <h1>YoutubeAutoSubscribeAndLiker</h1>
+  const [youtubeChannelLink, setYoutubeChannelLink] = useState("");
+  const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
+
+  const handleLoginViaYoutubeChannel = async (e) => {
+    e.preventDefault();
+    const res = await fetch("http://localhost:5000/youtubeChannelLogin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ youtubeChannelLink }),
+    });
+    const data = await res.json();
+
+    if (data.acknowledged == true || data.success) {
+      setIsLoginSuccessful(true);
+      Swal.fire({
+        title: "Login Successfully!",
+        icon: "success",
+      });
+    }
+
+    // // Save youtubeChannelID and timestamp in localStorage
+    // const expirationTime = new Date().getTime() + 60 * 60 * 1000; // One hour in milliseconds
+    // localStorage.setItem("youtubeChannelID", data.youtubeChannelID);
+    // localStorage.setItem("expirationTime", expirationTime);
+
+    console.log(data.youtubeChannelID);
+  };
+
+  const handleLoginYoutubeChannelLink = (e) => {
+    setYoutubeChannelLink(e.target.value);
+  };
+
+  return (
+    <div className="bg-gradient-to-br from-cyan-100 via-pink-200 to-yellow-200 min-h-screen mt-16">
+      {/* Title box */}
+      {/* <div className="lg:max-w-5xl mx-auto w-full py-10 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-center text-white shadow-md">
+        <h1 className="text-4xl font-extrabold text-white">Youtube Auto Subscribe & Liker</h1>
+      </div> */}
+
+      {/* Search box */}
+      <div>
+        <div className="flex items-center justify-center min-h-lvh">
+          <form
+            onSubmit={handleLoginViaYoutubeChannel}
+            className="flex items-center max-w-5xl w-full bg-white rounded-full shadow-md"
+          >
+            <div className="w-full">
+              <input
+                type="search"
+                value={youtubeChannelLink}
+                onChange={handleLoginYoutubeChannelLink}
+                className="w-full px-4 py-2 text-gray-800 rounded-full focus:outline-none"
+                placeholder="Search"
+              />
+            </div>
+            <div>
+              <button
+                type="submit"
+                className="flex items-center bg-blue-600 justify-center w-20 h-12 text-white rounded-r-full transition duration-300 hover:bg-blue-700"
+              >
+                <LuSendHorizonal className="w-6 h-6" />
+              </button>
+            </div>
+          </form>
         </div>
-    );
+      </div>
+
+      {/* Dashboard */}
+
+      {isLoginSuccessful && (
+        <div className="text-center mt-4">
+          <h1>Welcome to the Dashboard!</h1>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default YoutubeAutoSubscribeAndLiker;
