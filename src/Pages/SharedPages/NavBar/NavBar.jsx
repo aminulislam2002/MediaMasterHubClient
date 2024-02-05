@@ -19,6 +19,10 @@ const NavBar = () => {
       path: "/contact-us",
       label: "Contact Us",
     },
+    {
+      path: "/authentication",
+      label: "Login / Register",
+    },
   ];
 
   return (
