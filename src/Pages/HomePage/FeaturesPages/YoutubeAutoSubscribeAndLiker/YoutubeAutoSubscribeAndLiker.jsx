@@ -1,10 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LuSendHorizonal } from "react-icons/lu";
 import Swal from "sweetalert2";
 
 const YoutubeAutoSubscribeAndLiker = () => {
   const [youtubeChannelLink, setYoutubeChannelLink] = useState("");
-  const [isLoginSuccessful, setIsLoginSuccessful] = useState(false);
+  const [inputId, setInputId] = useState("");
+  const [allLoginChannelIds, setAllLoginChannelIds] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/youtubeChannelLoginID")
+      .then((res) => res.json())
+      .then((data) => {
+        setAllLoginChannelIds(data);
+      });
+  }, []);
+
+  console.log(allLoginChannelIds);
+  console.log(inputId);
 
   const handleLoginViaYoutubeChannel = async (e) => {
     e.preventDefault();
@@ -18,19 +30,12 @@ const YoutubeAutoSubscribeAndLiker = () => {
     const data = await res.json();
 
     if (data.acknowledged == true || data.success) {
-      setIsLoginSuccessful(true);
+      setInputId(data.youtubeChannelID);
       Swal.fire({
         title: "Login Successfully!",
         icon: "success",
       });
     }
-
-    // // Save youtubeChannelID and timestamp in localStorage
-    // const expirationTime = new Date().getTime() + 60 * 60 * 1000; // One hour in milliseconds
-    // localStorage.setItem("youtubeChannelID", data.youtubeChannelID);
-    // localStorage.setItem("expirationTime", expirationTime);
-
-    console.log(data.youtubeChannelID);
   };
 
   const handleLoginYoutubeChannelLink = (e) => {
@@ -74,11 +79,7 @@ const YoutubeAutoSubscribeAndLiker = () => {
 
       {/* Dashboard */}
 
-      {isLoginSuccessful && (
-        <div className="text-center mt-4">
-          <h1>Welcome to the Dashboard!</h1>
-        </div>
-      )}
+      <div></div>
     </div>
   );
 };
