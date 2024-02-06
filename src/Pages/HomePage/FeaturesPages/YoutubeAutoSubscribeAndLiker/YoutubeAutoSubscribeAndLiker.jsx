@@ -5,7 +5,6 @@ import { AuthContext } from "../../../../Providers/AuthProvider/AuthProvider";
 
 const YoutubeAutoSubscribeAndLiker = () => {
   const [youtubeChannelLink, setYoutubeChannelLink] = useState("");
-  const [inputId, setInputId] = useState("");
   const [allLoginChannelIds, setAllLoginChannelIds] = useState([]);
 
   const { user } = useContext(AuthContext);
@@ -19,7 +18,6 @@ const YoutubeAutoSubscribeAndLiker = () => {
   }, []);
 
   console.log(allLoginChannelIds);
-  console.log(inputId);
 
   const handleLoginViaYoutubeChannel = async (e) => {
     e.preventDefault();
@@ -37,11 +35,29 @@ const YoutubeAutoSubscribeAndLiker = () => {
     });
     const data = await res.json();
 
-    if (data?.acknowledged == true || data?.success) {
-      setInputId(data.youtubeChannelID);
+    if (data?.acknowledged == true) {
       Swal.fire({
-        title: "Login Successfully!",
+        title: "Congratulations!",
+        text: "Your account has been created successfully!",
         icon: "success",
+      });
+    } else if (data?.success) {
+      Swal.fire({
+        title: "Welcome aboard!",
+        text: "Great to see you back! 🎉",
+        icon: "success",
+      }).then(() => {
+        Swal.fire({
+          title: "Thank you for logging in!",
+          text: "We're thrilled to have you here. Enjoy your experience!",
+          icon: "info",
+        });
+      });
+    } else {
+      Swal.fire({
+        title: "Login Failed!",
+        text: "Failed to log in. Already you have an account!",
+        icon: "error",
       });
     }
   };
@@ -70,7 +86,7 @@ const YoutubeAutoSubscribeAndLiker = () => {
                 value={youtubeChannelLink}
                 onChange={handleLoginYoutubeChannelLink}
                 className="w-full px-4 py-2 text-gray-800 rounded-full focus:outline-none"
-                placeholder="Search"
+                placeholder="https://www.youtube.com/@..."
               />
             </div>
             <div>
