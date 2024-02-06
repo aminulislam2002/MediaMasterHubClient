@@ -73,30 +73,13 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
-      if (currentUser && currentUser.email) {
-        const loggedUser = {
-          email: currentUser.email,
-        };
-        fetch(`${import.meta.env.VITE_SERVER_BASE_URL}/jwt`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(loggedUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            localStorage.setItem("access-token", data.token);
-          })
-          .catch((error) => console.log(error));
-      } else {
-        localStorage.removeItem("access-token");
-      }
     });
     return () => {
       unsubscribe();
     };
   }, []);
+
+  console.log(user);
 
   const authInfo = {
     user,

@@ -10,6 +10,8 @@ import YoutubeTagsGenerator from "../../Pages/HomePage/FeaturesPages/YoutubeTags
 import ImageToTextConvert from "../../Pages/HomePage/FeaturesPages/ImageToTextConvert/ImageToTextConvert";
 import WebsiteBrowsing from "../../Pages/HomePage/FeaturesPages/WebsiteBrowsing/WebsiteBrowsing";
 import AgeCalculator from "../../Pages/HomePage/FeaturesPages/AgeCalculator/AgeCalculator";
+import Login from "../../Pages/Authentication/Login/Login";
+import Register from "../../Pages/Authentication/Register/Register";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,14 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home></Home>,
+      },
+      {
+        path: "/authentication/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/authentication/register",
+        element: <Register></Register>,
       },
       {
         path: "instagram-auto-follower-&-liker",

@@ -1,7 +1,12 @@
 import { Link } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
+import { useContext } from "react";
+import { AuthContext } from "../../../Providers/AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const navOptions = [
     {
       path: "/",
@@ -19,11 +24,28 @@ const NavBar = () => {
       path: "/contact-us",
       label: "Contact Us",
     },
-    {
-      path: "/authentication",
-      label: "Login / Register",
-    },
   ];
+
+  const handleUserSignOut = () => {
+    logOut()
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: `${user.displayName} Logout Successful`,
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+        Swal.fire({
+          icon: "warning",
+          title: `${user.displayName} Logout Failed`,
+          showConfirmButton: false,
+          timer: 3000,
+        });
+      });
+  };
 
   return (
     <div>
@@ -57,10 +79,24 @@ const NavBar = () => {
                 </Link>
               </li>
             ))}
+
+            {user ? (
+              <>
+                <button
+                  onClick={() => handleUserSignOut()}
+                  className="uppercase font-semibold text-slate-800 dark:text-slate-50"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <li className="uppercase font-semibold text-slate-800 dark:text-slate-50">
+                  <Link to="/authentication/login">Login / Register</Link>
+                </li>
+              </>
+            )}
           </ul>
-        </div>
-        <div className="hidden">
-          <a className="btn">Button</a>
         </div>
       </div>
     </div>
