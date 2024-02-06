@@ -12,6 +12,7 @@ import WebsiteBrowsing from "../../Pages/HomePage/FeaturesPages/WebsiteBrowsing/
 import AgeCalculator from "../../Pages/HomePage/FeaturesPages/AgeCalculator/AgeCalculator";
 import Login from "../../Pages/Authentication/Login/Login";
 import Register from "../../Pages/Authentication/Register/Register";
+import DashboardLayout from "../../Layouts/DashboardLayout/DashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ const router = createBrowserRouter([
         element: <AgeCalculator></AgeCalculator>,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>,
   },
 ]);
 
