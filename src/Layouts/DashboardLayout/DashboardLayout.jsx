@@ -14,9 +14,24 @@ const DashboardLayout = () => {
 
   const userOptions = (
     <>
-      <Link to="/dashboard/">
+      <Link to="/dashboard/youtube-promotions">
         <li className="mb-2 lg:px-5 py-1 rounded text-white hover:text-black hover:bg-white mx-2 text-lg font-normal">
-          Youtube Auto Subscribe & Liker
+          Youtube Promotions
+        </li>
+      </Link>
+      <Link to="/dashboard/facebook-promotions">
+        <li className="mb-2 lg:px-5 py-1 rounded text-white hover:text-black hover:bg-white mx-2 text-lg font-normal">
+          Facebook Promotions
+        </li>
+      </Link>
+      <Link to="/dashboard/instagram-promotions">
+        <li className="mb-2 lg:px-5 py-1 rounded text-white hover:text-black hover:bg-white mx-2 text-lg font-normal">
+          Instagram Promotions
+        </li>
+      </Link>
+      <Link to="/dashboard/twitter-promotions">
+        <li className="mb-2 lg:px-5 py-1 rounded text-white hover:text-black hover:bg-white mx-2 text-lg font-normal">
+          Twitter Promotions
         </li>
       </Link>
     </>
@@ -47,6 +62,11 @@ const DashboardLayout = () => {
                 </Link>
                 {isAdmin && <> {adminOptions} </>}
                 {isUser && <> {userOptions} </>}
+                <Link to="/">
+                  <li className="mb-2 lg:px-5 py-1 rounded text-white hover:text-black hover:bg-white mx-2 text-lg font-normal">
+                    Home
+                  </li>
+                </Link>
               </ul>
             </div>
           </div>
@@ -66,6 +86,11 @@ const DashboardLayout = () => {
             </Link>
             {isAdmin && <> {adminOptions} </>}
             {isUser && <> {userOptions} </>}
+            <Link to="/">
+              <li className="mb-2 lg:px-5 py-1 rounded text-white hover:text-black hover:bg-white mx-2 text-lg font-normal">
+                Home
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

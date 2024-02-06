@@ -70,7 +70,7 @@ const NavBar = () => {
           </div>
           <button className="btn btn-ghost text-2xl font-bold">MediaMaserHub</button>
         </div>
-        <div className="navbar-end hidden lg:flex">
+        <div className="navbar-end hidden lg:flex w-full">
           <ul className="flex justify-center items-center gap-10 px-1">
             {navOptions.map((option, index) => (
               <li key={index} className="uppercase font-semibold text-slate-800 dark:text-slate-50">
@@ -88,6 +88,17 @@ const NavBar = () => {
                 >
                   Logout
                 </button>
+
+                <Link className="uppercase font-semibold text-slate-800 dark:text-slate-50" to="/dashboard/profile">
+                  {user?.photoURL && (
+                    <img
+                      src={user?.photoURL}
+                      className="w-10 h-10 rounded-full"
+                      alt={user?.displayName}
+                      title={user?.displayName}
+                    />
+                  )}
+                </Link>
               </>
             ) : (
               <>

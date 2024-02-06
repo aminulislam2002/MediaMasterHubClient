@@ -13,6 +13,11 @@ import AgeCalculator from "../../Pages/HomePage/FeaturesPages/AgeCalculator/AgeC
 import Login from "../../Pages/Authentication/Login/Login";
 import Register from "../../Pages/Authentication/Register/Register";
 import DashboardLayout from "../../Layouts/DashboardLayout/DashboardLayout";
+import Profile from "../../Pages/DashboardPages/Profile/Profile";
+import YoutubePromotions from "../../Pages/DashboardPages/UserDashboard/YoutubePromotions/YoutubePromotions";
+import FacebookPromotions from "../../Pages/DashboardPages/UserDashboard/FacebookPromotions/FacebookPromotions";
+import InstagramPromotions from "../../Pages/DashboardPages/UserDashboard/InstagramPromotions/InstagramPromotions";
+import TwitterPromotions from "../../Pages/DashboardPages/UserDashboard/TwitterPromotions/TwitterPromotions";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +77,28 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "youtube-promotions",
+        element: <YoutubePromotions></YoutubePromotions>,
+      },
+      {
+        path: "facebook-promotions",
+        element: <FacebookPromotions></FacebookPromotions>,
+      },
+      {
+        path: "instagram-promotions",
+        element: <InstagramPromotions></InstagramPromotions>,
+      },
+      {
+        path: "twitter-promotions",
+        element: <TwitterPromotions></TwitterPromotions>,
+      },
+    ],
   },
 ]);
 
