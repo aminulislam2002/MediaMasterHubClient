@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LuSendHorizonal } from "react-icons/lu";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../../Providers/AuthProvider/AuthProvider";
 
 const YoutubeAutoSubscribeAndLiker = () => {
   const [youtubeChannelLink, setYoutubeChannelLink] = useState("");
   const [inputId, setInputId] = useState("");
   const [allLoginChannelIds, setAllLoginChannelIds] = useState([]);
+
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
     fetch("http://localhost:5000/youtubeChannelLoginID")
@@ -20,16 +23,21 @@ const YoutubeAutoSubscribeAndLiker = () => {
 
   const handleLoginViaYoutubeChannel = async (e) => {
     e.preventDefault();
+    const youtubeChannelData = {
+      youtubeChannelLink: youtubeChannelLink,
+      userEmail: user?.email,
+    };
+
     const res = await fetch("http://localhost:5000/youtubeChannelLogin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ youtubeChannelLink }),
+      body: JSON.stringify(youtubeChannelData),
     });
     const data = await res.json();
 
-    if (data.acknowledged == true || data.success) {
+    if (data?.acknowledged == true || data?.success) {
       setInputId(data.youtubeChannelID);
       Swal.fire({
         title: "Login Successfully!",
@@ -39,7 +47,7 @@ const YoutubeAutoSubscribeAndLiker = () => {
   };
 
   const handleLoginYoutubeChannelLink = (e) => {
-    setYoutubeChannelLink(e.target.value);
+    setYoutubeChannelLink(e?.target?.value);
   };
 
   return (
